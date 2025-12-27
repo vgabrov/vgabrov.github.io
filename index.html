@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105729572', 'ym');
+    ym(105729572, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105729572" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача. Решение. Результат — Медицина, Математика, Бизнес, GRE, GMAT, SAT, AP, IB, IELTS, TOEFL</title>
+    <meta name="description" content="аналитик данных и математик, помогаю решать задачи в науке, медицине, бизнесе и образовании. Моделирую процессы, провожу статистический анализ, прогнозирую, оптимизирую и визуализирую данные. Каждый проект выполняю лично — от первой консультации до готового результата: отчёта, дашборда или индивидуального плана.">
+    <meta name="keywords" content="статистика, медицинская статистика, анализ данных, диссертация, научная работа, GRE, GMAT, SAT, AP Statistics, IB, IELTS, TOEFL, помощь с задачей, готовый проект">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            color: #e0e0e0;
+            background-color: #0f0f0f;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            color: #00ffff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #00ffff;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.2s;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #00ff99;
+            border-left: 5px solid #00ff99;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ff99;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        h2.cases {
+            font-size: 2.6em;
+            color: #00ffff;
+            text-align: center;
+            margin: 100px auto 60px;
+            text-shadow: 0 0 20px #00ffff;
+            border: 0;
+            border-left: none;
+        }
+        
+        
+        .tag {
+    display: inline-block;
+    background: rgba(0,255,255,0.2); /* Teal background */
+    color: #00ffff; /* Teal text */
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin: 3px 2px 3px 0;
+    border: 1px solid rgba(0,255,255,0.3); /* Teal border */
+    box-shadow: 0 0 12px rgba(0,255,255,0.3); /* Teal glow */
+}
+
+.tag.pink {
+    background: rgba(255,0,255,0.15); /* Pink background */
+    color: #ff00ff; /* Pink text */
+    border: 1px solid rgba(255,0,255,0.5); /* Pink border */
+    box-shadow: 0 0 15px rgba(255,0,255,0.4); /* Pink glow */
+    padding: 6px 12px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px 0 8px 0;
+}
+        
+        
+        .cta-button {
+    display: inline-block;
+    background: #00ffff;
+    color: #000;
+    padding: 20px 50px;
+    font-size: 1.6em;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover — приподнимается + пульсация + сильнее glow */
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1), 
+                0 10px 30px rgba(0, 255, 255, 0.6);
+    animation: pulse 1.5s infinite;
+}
+
+/* Active — при нажатии (клик) */
+.cta-button:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 1), 
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Пульсация неона на hover */
+@keyframes pulse {
+    0% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); }
+    50% { box-shadow: 0 0 45px rgba(0, 255, 255, 1); }
+    100% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); }
+}
+
+
+
+/* Отдельная анимация — ТОЛЬКО свечение, без transform и scale */
+@keyframes reviews-glow {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(0, 255, 255, 1), 0 0 80px rgba(0, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+}
+
+
+
+
+
+
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,255,255,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        section:hover { box-shadow: 0 0 25px rgba(0,255,255,0.4); transform: translateY(-3px); }
+        p { font-size: 1.1em; margin-bottom: 10px; opacity: 0; animation: fadeIn 1s forwards; }
+        .highlight { color: #ff00ff; font-weight: bold; }
+        .contact a { color: #00ffff; text-decoration: none; font-weight: bold; }
+        .contact a:hover { color: #ff00ff; text-decoration: underline; text-shadow: 0 0 5px #ff00ff; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        section:nth-of-type(1) p { animation-delay: 0.3s; }
+        section:nth-of-type(2) p { animation-delay: 0.4s; }
+        section:nth-of-type(3) p { animation-delay: 0.5s; }
+        section:nth-of-type(4) p { animation-delay: 0.6s; }
+        section:nth-of-type(5) p { animation-delay: 0.7s; }
+        /* КЕЙСЫ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+        .card { perspective: 1400px; height: 540px; }
+        .inner {
+            width: 100%; height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 2000ms cubic-bezier(.2,.9,.2,1);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0,255,255,0.55);
+        }
+        .card:hover .inner { transform: rotateY(180deg); }
+        .face { position: absolute; inset: 0; border-radius: 20px; backface-visibility: hidden; overflow: hidden; padding: 28px; display: flex; flex-direction: column; }
+        .front { background: linear-gradient(135deg,#111,#000); border: 1px solid rgba(0,255,255,0.3); }
+        .back { background:#fff; color:#000; transform: rotateY(180deg); }
+        .flip-icon {
+            
+            position: absolute;
+            right: 22px;
+            bottom: 22px;
+            width: 32px; height: 32px;
+            background: rgba(255,255,255,0.1);
+            border: 3px solid #00ffff;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 42px; color: #00ffff;
+            box-shadow: 0 0 30px rgba(0,255,255,0.8);
+            transition: .4s;
+        }
+        .back .flip-icon {border-color:#ff00ff; color:#ff00ff; background:rgba(255,255,255,0.95); }
+        .card:hover .flip-icon { transform: scale(1.15) rotate(90deg); }
+        .card-flow {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 0 6px ;
+            padding-bottom: 0 3000px !important;
+        }
+        
+        .face.back .flip-icon {display: none;}
+
+        
+        .card-text {
+            font-size: 10px;
+            flex: 1;
+            min-width: 280px;
+        }
+        .card-img {
+            width: 380px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,255,255,0.4);
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+        .avatar {
+            width: 92px;
+            height: 92px;
+            border-radius: 16px;
+            border: 2px solid rgba(0,255,255,0.4);
+            flex-shrink: 0;
+        }
+        
+     
+        
+        @media (max-width:860px) {
+            .card-flow { flex-direction: column; }
+            .card-img { width: 100%; margin: 20px auto 0; }
+        }
+        form { margin-top: 30px; }
+        form input, form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            background: #111;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+        }
+        form button {
+            padding: 14px 32px;
+            background: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        @media (max-width:960px) { .cards-grid { grid-template-columns:1fr; } body { max-width:100%; padding:0 15px; } }
+        .title {font-size: 12px;     font-weight: 700;}
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <h1>Задача. Решение. Результат</h1>
+
+
+<div style="text-align: center; margin: 60px 0 80px;">
+    <img src="spec.jpg" alt="аналитик данных и математик" 
+         style="width: 300px; 
+                height: 300px; 
+                object-fit: cover; 
+                border-radius: 50%; 
+                border: 6px solid #00ffff; 
+                box-shadow: 0 0 50px rgba(0,255,255,0.9);">
+</div>
+
+    <section>
+    <p>Я — независимый <span class="highlight">аналитик данных и математик</span>, помогаю решать задачи в науке, медицине, бизнесе и образовании.</p>
+    <p>Моделирую процессы, провожу статистический анализ, прогнозирую, оптимизирую и визуализирую данные. Каждый проект выполняю лично — от первой консультации до готового результата: отчёта, дашборда или индивидуального плана.</p>
+    <p>Вы приходите с задачей — уходите с понятным решением, которое работает.</p>
+    </section>
+
+<section style="text-align: center; margin: 60px 0;">
+    <a href="https://t.me/medstathelpsupportbot" class="cta-button">
+        Обсудить задачу в Telegram
+    </a>
+</section>
+
+    <section>
+        <h2>Медицина</h2>
+        <p>Статистические модели, сравнение и выводы по группам, регрессионный анализ, ответы по гипотезам исследования. Консультации и обучение.</p>
+    </section>
+    <section>
+        <h2>Математика и бизнес</h2>
+        <p>Математика: моделирование процессов, симуляции, прогнозирование, оптимизация.<br>
+           Бизнес, научные проекты, работы в эконометрике, актуарной сфере и финансах, социологии, логистике.</p>
+    </section>
+    <section>
+        <h2>Экзамены</h2>
+        <p>GRE, GMAT, SAT, AP Statistics/Calculus, IB, IELTS, TOEFL — повышение баллов до топ 10%, поступление в университет, магистратуру, на MBA.</p>
+    </section>
+    <section>
+        <p>Вы приходите с проблемой, а уходите с пониманием и собственным решением, проектом и честно заработанным высоким баллом.</p>
+    </section>
+
+
+
+
+
+
+<section style="text-align: center; padding: 60px 20px; background: #1a1a1a; border-radius: 16px; margin: 80px 0;">
+    <h2 style="font-size: 2.6em; color: #00ffff; text-shadow: 0 0 20px #00ffff; margin-bottom: 60px;">
+        Отзывы клиентов
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Подготовка к GRE Quantitative — с 155 до 169 за 3 месяца. Персональный план, разбор ошибок, много практики. Поступил в топ-30 университет США.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Ярослав, 2025</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Владимир занимается со мной статистикой, готовит к сдаче экзамена на английском языке и к написанию работы. Всем довольна, идёт прогресс.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Анастасия, 2025</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «За 4 занятия по 1,5 часа сдал математику на английском в университет в Европу. Узнал за 10 дней до сдачи, что придётся устно объяснять решение на иностранном языке. Специалист помог и с математикой, и с английским.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Михаил, 2025</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Задача (проверка стат. части диссертации) была выполнена быстро, качественно, ответил на все вопросы.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Анна, 2025</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Обращалась по поводу медицинской статистики! Очень чётко, быстро и понятно! Настоящая профессиональная работа.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Лиза, 2024</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Проводили расчёты мед. данных всеми доступными методами статистики. Помог подобрать наиболее правильный метод и простейшую модель прогнозирования.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Святослав, 2024</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Нужна была помощь для работы со статистикой. За несколько занятий восполнены все пробелы, работа выполнена. Присылал полезные материалы.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Ольга, 2025</p>
+        </div>
+
+        <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
+            <p style="font-style: italic; font-size: 1.15em;">
+                «Экзамен по статистическому анализу успешно сдан. Специалист подстроился под оригинальность заданий моего вуза, давал задания для закрепления.»
+            </p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00ffff;">— Данила, 2025</p>
+        </div>
+
+    </div>
+
+    <a href="https://profi.ru/profile/GabrovVV/reviews/" target="_blank" class="cta-button" style="margin-top: 80px;">
+        Читать все отзывы на profi.ru →
+    </a>
+</section>
+
+
+
+
+
+
+
+    <h2 class="cases">Кейсы клиентов</h2>
+
+    <div class="cards-grid">
+                <!-- 1 -->
+        <div class="card" tabindex="0">
+            <div class="inner">
+                <div class="face front">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                     <div style="display: flex; align-items: center; margin-bottom: 12px;">
+        <div class="avatar">
+            <img src="sciencehelp_clients_1.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+        </div>
+        <div class="small" style="margin-left: 12px;">Клиент: практикующий врач-исследователь</div>
+    </div>
+
+                        <div class="card-text">
+                            <div class="title">Анализ биомаркеров аутизма (клиническое исследование)</div>
+                            <div class="meta">
+                                <span class="tag">Запрос</span>  Найти биомаркер, наиболее сильно предсказывающий диагноз.<br>
+                                <span class="tag">Проблема</span> Десятки показателей, маленькая выборка, клиент не разбирается в статистике и регрессиях.<br>
+                                <span class="tag">Сформулированная задача</span> Отобрать ключевые маркеры, построить модель прогноза, проверить устойчивость.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                        <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_1.jpeg" alt="Графики результатов" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                        </div>
+
+                        <div class="card-text">
+                            <span class="tag pink">Решение</span>
+                            PCA для уменьшения размерности, кластеризация для выявления групп, серия регрессий, поправка на множественные проверки. Выявлен один биомаркер, который даже в одиночной линейной модели давал статистически и клиинчески значимый эффект.<br>
+                            <span class="tag pink">Результат</span>
+                            Консультация для клиента для понимания методов и самостоятельного использования и модификации, отчёт в PDF: таблица коэффициентов, ROC/AUC, графики важности признаков, обоснование выбора маркера, рекомендации писать в статье о пилотном характере работы из-за малого n.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" tabindex="0">
+            <div class="inner">
+                <div class="face front">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                       <div style="display: flex; align-items: center; margin-bottom: 12px;">
+        <div class="avatar">
+            <img src="sciencehelp_clients_2.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+        </div>
+        <div class="small" style="margin-left: 12px;">Клиент: финансовый директор (FMCG)</div>
+    </div>
+                       <div class="card-text">
+    <div class="title">Прогноз продаж (FMCG)</div>
+    <div class="meta">
+        <span class="tag">Запрос</span> Прогноз продаж на год и выделение факторов влияния<br>
+        <span class="tag">Проблема</span> Прогнозирование только на опыте сотрудников, точность прогнозов неизвестна.<br>
+        <span class="tag">Сформулированная задача</span> Построить модели временных рядов и регрессий продаж, выявить ключевые факторы, оценить степень влияния, дать рекомендации.
+    </div>
+
+</div>
+</div>
+</div>
+<div class="face back">
+    <div class="flip-icon">↶</div>
+    <div class="card-flow">
+         <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_2.jpeg" alt="Графики результатов" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                        </div>
+        <div class="card-text">
+            <span class="tag pink">Решение</span>
+            Анализы временных рядов методами SARIMA, SARIMAX, Prophet. Оценка факторов и прогнозов регрессий — выборочные регрессии, доверительные интервалы, выделение тренда, сезонности, циклов.<br>
+            <span class="tag pink">Результат</span>
+            Интерактивные таблица и дашборд Excel с "красивой" копией для презентаций на Tableau Public с прогнозами продаж на следующие 3–6 месяцев с доверительными интервалами, графиками тренда и сезонности и возможностью изменять вводные данные для моделирования.
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card" tabindex="0">
+            <div class="inner">
+                <div class="face front">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                       <div class="avatar">
+                       <img src="sciencehelp_clients_3.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+                       </div>
+                       <div class="small" style="margin-left: 12px;">Клиент: взрослый абитуриент международного университета</div>
+                         </div>
+                       <div class="card-text">
+    <div class="title">Персонализированная учебная траектория подготовки к экзамену (актуально для SAT, GMAT, GRE, AB Calc & Stats, IB Maths, FM Financial Maths)</div>
+    <div class="meta">
+        <span class="tag">Запрос</span> Подготовка к международному экзамену по математике, топ-10%<br>
+        <span class="tag">Проблема</span> Студент не понимает, какие навыки и темы нужны, нет структуры, сложно оценить уровень и прогресс, стресс при решении сложных задач на время. <br>
+        <span class="tag">Сформулированная задача</span> Составить индивидуальный план подготовки, выявить и закрыть пробелы, развить навыки решения сложных задач на время и под стрессом, повысить шансы на топ-10%.
+    </div>
+</div>
+</div>
+</div>
+<div class="face back">
+    <div class="flip-icon">↶</div>
+    <div class="card-flow">
+         <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_3.jpeg" alt="Графики результатов" style="width:100%; height:auto; max-height:350px; object-fit:contain; border-radius:16px;">
+                        </div>
+        <div class="card-text">
+            <span class="tag pink">Решение</span>
+            Диагностика текущего уровня знаний, формирование индивидуальной траектории по дням, подбор упражнений и тестов для закрепления тем, тренировка решения задач на время и управление стрессом. Регулярная обратная связь и корректировка плана.<br>
+            <span class="tag pink">Результат</span>
+            Индивидуальный план с контрольными точками и тестами, улучшение навыков решения сложных задач, готовность к экзаменационному дню, повышенная уверенность и оценка вероятности достижения топ-10% на экзамене.
+  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card" tabindex="0">
+            <div class="inner">
+                <div class="face front">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                          <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                       <div class="avatar">
+                       <img src="sciencehelp_clients_4.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+                       </div>
+                       <div class="small" style="margin-left: 12px;">Клиент: генеральный директор производителя (FMCG)</div>
+                         </div>
+
+                        <div class="card-text">
+                            <div class="title">Оптимизация маршрутов доставки внутри города (FMCG)</div>
+                            <div class="meta">
+                                <span class="tag">Запрос</span> Снижение логистических затрат<br>
+                                <span class="tag">Проблема</span> Нет обновляемых данных о задержках, трафике, нет алгоритма выбора маршрута<br>
+                                <span class="tag">Сформулировананя задача</span> Построить алгоритм подбора маршрутов с ограниченными средствами
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="flip-icon">↶</div>
+                    <div class="card-flow">
+                         <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_4.jpeg" alt="Графики результатов" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                        </div>
+                        <div class="card-text">
+                            <span class="tag pink">Решение</span>
+                            Сбор доступных данных о маршрутах и построение матрицы расстояний вручную, использование бесплатных API карт, расчет маршрутов в виджете, выгрузка и отправка водителям.<br>
+                            <span class="tag pink">Результат</span>
+                            Матрица расстояний, виджет расчёта маршрута, автоматическая рассылка, прогнозная экономия времени 10–20%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 А/B тест -->
+<div class="card" tabindex="0">
+    <div class="inner">
+        <div class="face front">
+            <div class="flip-icon">↶</div>
+            <div class="card-flow">
+                   <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                       <div class="avatar">
+                       <img src="sciencehelp_clients_5.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+                       </div>
+                       <div class="small" style="margin-left: 12px;">Клиент: основательница языковой онлайн-школы</div>
+                         </div>
+
+                <div class="card-text">
+                    <div class="title">A/B тестирование онлайн-школы</div>
+                    <div class="meta">
+                        <span class="tag">Запрос</span> Проверить, насколько новое предложение увеличивает приток студентов и общий доход.<br>
+                        <span class="tag">Проблема</span> Нет системного подхода к оценке, выборки пользователей пополняются ежедневно, разные варианты имеют разное количество учителей, результаты нельзя корректно сравнивать без учёта статистической значимости и мощности теста, а также влияния увеличения штата учителей.<br>
+                        <span class="tag">Сформулированная задача</span> Построить A/B тест в реальном времени, корректно учитывать динамические выборки, цены каждого варианта и разные расходы в разных предложениях; оценить конверсию и доход для каждого варианта в динамике, выделить статистически значимые различия.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="face back">
+            <div class="flip-icon">↶</div>
+            <div class="card-flow">
+                 <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_5.jpeg" alt="Графики результатов" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                        </div>
+                <div class="card-text">
+                    <span class="tag pink">Решение</span>
+                    Настроить сбор ежедневных данных о посещениях, регистрациях и оплатах; рассчитывать конверсию и доход по каждому варианту с нормализацией на размер выборки и изменения в штате; визуализировать динамику конверсий и дохода с доверительными интервалами.<br>
+                    <span class="tag pink">Результат</span>
+                    Дашборд с графиками конверсий и дохода по дням и неделям для каждого варианта, таблица статистических сравнений с p-value и CI, рекомендации по оптимальному предложению.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+       <!-- Языковые экзамены -->
+<div class="card" tabindex="0">
+    <div class="inner">
+        <div class="face front">
+            <div class="flip-icon">↶</div>
+            <div class="card-flow">
+                  <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                       <div class="avatar">
+                       <img src="sciencehelp_clients_6.jpeg" alt="Фото клиента" style="width: 92px; height: 92px; border-radius: 16px; object-fit: cover;"/>
+                       </div>
+                       <div class="small" style="margin-left: 12px;">Клиент: IT-специалист</div>
+                         </div>
+
+                <div class="card-text">
+                    <div class="title">Подготовка к международным языковым экзаменам (актуально для IELTS, TOEFL, Cambridge (FCE/CAE/CPE), Duolingo English Test и разделов GRE, GMAT)</div>
+                    <div class="meta">
+                        <span class="tag">Запрос</span> Подготовить на балл из топ 10%.<br>
+                        <span class="tag">Проблема</span> Сложно работать с художественными текстами, повторяющиеся заученные ошибки в speaking, ошибки из-за стресса и ограничений по времени, большие пробелы в редкой лексике, сложности с монологом и диалогом.<br>
+                        <span class="tag">Сформулированная задача</span> Провести диагностику навыков, выявить слабые места в reading, writing, listening, speaking, лексике и грамматике; разработать персонализированный план занятий с упражнениями и практикой под стрессом.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="face back">
+            <div class="flip-icon">↶</div>
+            <div class="card-flow">
+                 <div class="screenshot card-img">
+                        <img src="sciencehelp_plot_6.jpeg" alt="Графики результатов" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
+                        </div>
+                <div class="card-text">
+                    <span class="tag pink">Решение</span>
+                    Индивидуальные план, рекоммендации и упражнения по темам, на чтение сложных текстов, speaking под таймер с преподавателем, регулярные мини-тесты на словарный запас и грамматику, контроль и исправление повторяющихся ошибок, отслеживание прогресса по разделам.<br>
+                    <span class="tag pink">Результат</span>
+                    Отчет с баллами и процентилями по каждому навыку, сильными и слабыми сторонами,индивидуальынй план занятий на каждую неделю, прогнозируемые баллы. 90%-ый перцентиль (высокий балл).
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+
+
+<section style="text-align: center; padding: 80px 20px;">
+    <a href="https://t.me/medstathelpsupportbot" class="cta-button">
+        Обсудить задачу в Telegram
+    </a>
+</section>
+
+    <section class="contact">
+        <h2>Контакты</h2>
+        <ul>
+            <li>Телеграм-канал: <a href="https://t.me/medstathelp" target="_blank">@medstathelp</a></li>
+            <li>E-mail: <a href="mailto:sciencehelp.one@gmail.com">sciencehelp.one@gmail.com</a></li>
+        </ul>
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="E-mail или мессенджер" required>
+          <textarea name="message" placeholder="С чем вам помочь?" rows="5" required></textarea>
+          <button type="submit" class="cta-button" style="width: 100%; max-width: 400px; margin: 20px auto; display: block;">
+    Отправить сообщение
+</button>
+        </form>
+    </section>
+
+</body>
+</html>
