@@ -268,7 +268,20 @@
         .title {font-size: 12px;     font-weight: 700;}
         
         
-        
+        .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));  /* на десктопе по 2 */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;  /* на мобильных — 100% ширины, по 1 карточке */
+        gap: 30px;
+    }
+}
         
         
     </style>
@@ -327,8 +340,9 @@
         Отзывы клиентов
     </h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
-
+<div class="reviews-grid">
+    <!-- Все твои карточки отзывов внутри -->
+</div>
         <div style="background: #1a1a1a; padding: 35px; border-radius: 16px; border: 2px solid #00ffff; box-shadow: 0 0 30px rgba(0,255,255,0.4);">
             <p style="font-style: italic; font-size: 1.15em;">
                 «Подготовка к GRE Quantitative — с 155 до 169 за 3 месяца. Персональный план, разбор ошибок, много практики. Поступил в топ-30 университет США.»
@@ -656,15 +670,29 @@
             <li>Телеграм-канал: <a href="https://t.me/medstathelp" target="_blank">@medstathelp</a></li>
             <li>E-mail: <a href="mailto:sciencehelp.one@gmail.com">sciencehelp.one@gmail.com</a></li>
         </ul>
-     <!--   <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true">
           <input type="text" name="name" placeholder="Ваше имя" required>
           <input type="email" name="email" placeholder="E-mail или мессенджер" required>
           <textarea name="message" placeholder="С чем вам помочь?" rows="5" required></textarea>
           <button type="submit" class="cta-button" style="width: 100%; max-width: 400px; margin: 20px auto; display: block;">
     Отправить сообщение
 </button>
-        </form> -->
+        </form>
     </section>
+
+<script>
+  // Только на тач-устройствах
+  if ('ontouchstart' in window) {
+    document.querySelectorAll('.card').forEach(card => {
+      card.onclick = function() {
+        const inner = this.querySelector('.inner');
+        inner.style.transform = inner.style.transform === 'rotateY(180deg)' 
+          ? 'rotateY(0deg)' 
+          : 'rotateY(180deg)';
+      };
+    });
+  }
+</script>
 
 </body>
 </html>
